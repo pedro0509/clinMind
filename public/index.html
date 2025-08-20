@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon icon-->
+    <link rel="shortcut icon" type="image/png" href="./assets/img/favicon.webp" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="stylesheet" href="./assets/styles/style.css">
+
+    <title>ClinMind</title>
+</head>
+
+<body class="bg-index">
+    <div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+        <div class="row w-100 justify-content-center">
+            <div class="col-11 col-sm-9 col-md-7 col-lg-5 col-xl-4">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-header text-center py-4 rounded-top-4">
+                        <img src="./assets/img/logo-completa-branca.webp" 
+                             alt="ClinMind - Sistema de Treinamento em Enfermagem" 
+                             class="logo-index mb-3" 
+                             loading="eager" />
+                        <p class="mb-0 text-white-50 fs-6 fw-light">
+                            Sua jornada de aprendizado começa aqui ✨
+                        </p>
+                    </div>
+
+                    <div class="card-body p-4 p-md-5">
+                        <div class="text-center mb-4">
+                            <h2 class="h4 text-primary fw-bold mb-2">Bem-vindo(a)!</h2>
+                            <p class="text-muted mb-0">Vamos começar sua simulação clínica</p>
+                        </div>
+                        
+                        <form id="cadastroForm">
+                            <div class="mb-4">
+                                <label for="userName" class="form-label fw-semibold text-secondary d-flex align-items-center">
+                                    <i class="bi bi-person-fill me-2 text-primary"></i>
+                                    Como você gostaria de ser chamado(a)?
+                                </label>
+                                <input type="text" 
+                                       class="form-control form-control-lg rounded-3 border-2" 
+                                       id="userName"
+                                       placeholder="Digite seu nome ou apelido" 
+                                       required
+                                       autocomplete="name"
+                                       maxlength="50">
+                                <div class="form-text text-muted">
+                                    <i class="bi bi-info-circle me-1"></i>
+                                    Será usado durante toda a simulação
+                                </div>
+                            </div>
+
+                            <div class="d-grid gap-2">
+                                <button type="submit" class="btn btn-primary btn-lg rounded-3 fw-semibold py-3 position-relative overflow-hidden">
+                                    <span class="d-flex align-items-center justify-content-center">
+                                        <i class="bi bi-play-circle-fill me-2"></i>
+                                        Iniciar Simulação
+                                    </span>
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <div class="mt-4 text-center">
+                            <div class="row g-3 text-muted small">
+                                <div class="col-6">
+                                    <i class="bi bi-clock text-primary"></i>
+                                    <span class="d-block">~15 minutos</span>
+                                </div>
+                                <div class="col-6">
+                                    <i class="bi bi-award text-primary"></i>
+                                    <span class="d-block">Certificado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer text-center py-3 border-0">
+                        <p class="mb-0 text-secondary small">
+                            Desenvolvido com 
+                            <i class="bi bi-heart-fill text-danger"></i> e 
+                            <i class="bi bi-cup-hot text-warning"></i> por 
+                            <a href="https://github.com/pedro0509" 
+                               target="_blank"
+                               rel="noopener"
+                               class="text-decoration-none fw-semibold">
+                                Pedro Domingues
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        document.getElementById('cadastroForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const formData = {
+                userName: document.getElementById('userName').value
+            };
+
+            console.log('Dados do formulário:', formData);
+
+            try {
+                const response = await fetch('/api/session/create-session', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    credentials: 'include',
+                    body: JSON.stringify(formData)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    localStorage.setItem('gameSessionId', result.sessionId);
+                    localStorage.setItem('userName', formData.userName);
+
+                    console.log('Nova sessão criada automaticamente:', result.sessionId);
+
+                    // Redirecionar para a página do chat
+                    window.location.href = 'chat.html';
+                }
+            } catch (error) {
+                console.error('Erro ao criar sessão:', error);
+            }
+
+        });
+    </script>
+</body>
+
+</html>

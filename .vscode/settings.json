@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/e9158c26-582e-4fc1-8028-735a1783b4c4/resourceGroups/appsvc_linux_brazilsouth_basic/providers/Microsoft.Web/sites/clinmind",
+    "appService.deploySubpath": "."
+}

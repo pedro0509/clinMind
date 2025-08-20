@@ -1,0 +1,329 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root {
+    --primary-color: #075792;
+    --secondary-color: #0F9996;
+    --tertiary-color: #d5312d;
+    --text-color: #202843;
+    --font-family: 'Open Sans', sans-serif;
+    --logo-color: #f08922;
+    --font-family-logo: 'Montserrat', sans-serif;
+}
+
+.bg-index {
+    position: relative;
+    min-height: 100vh;
+    background-image: url('../img/closeup-de-um-apoio-de-maos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+.bg-index::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            rgba(7, 87, 146, 0.85) 0%,
+            rgba(15, 153, 150, 0.75) 50%,
+            rgba(7, 87, 146, 0.85) 100%);
+    z-index: 1;
+}
+
+/* Melhoria do card sobre o fundo */
+.card {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    position: relative;
+    z-index: 2;
+}
+
+.card-header {
+    background: rgba(13, 110, 253, 0.95) !important;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.card-footer {
+    background: rgba(248, 249, 250, 0.95) !important;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Estilo para a logo principal */
+.logo-index {
+    max-width: 100%;
+    height: auto;
+    width: clamp(200px, 25vw, 320px);
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.logo-index:hover {
+    transform: scale(1.02);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Melhorias no card */
+.card {
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.98) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+.card-header {
+    background: linear-gradient(135deg, 
+        rgba(7, 87, 146, 0.95) 0%, 
+        rgba(15, 153, 150, 0.95) 100%) !important;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.card-footer {
+    background: rgba(248, 249, 250, 0.98) !important;
+    -webkit-backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Melhorias no formulário */
+.form-control {
+    border: 2px solid rgba(7, 87, 146, 0.2);
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+.form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(7, 87, 146, 0.15);
+    background: rgba(255, 255, 255, 1);
+    transform: translateY(-1px);
+}
+
+.form-control::placeholder {
+    color: rgba(7, 87, 146, 0.5);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, 
+        var(--primary-color) 0%, 
+        var(--secondary-color) 100%);
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(7, 87, 146, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent);
+    transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(7, 87, 146, 0.4);
+    background: linear-gradient(135deg, 
+        #0a6aa3 0%, 
+        #12a8a5 100%);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(7, 87, 146, 0.3);
+}
+
+/* Melhorias nas informações adicionais */
+.row.g-3 .col-6 {
+    transition: all 0.3s ease;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+}
+
+.row.g-3 .col-6:hover {
+    background: rgba(7, 87, 146, 0.05);
+    transform: translateY(-2px);
+}
+
+.row.g-3 .col-6 i {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Animações suaves */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.form-control, .btn-primary {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+/* Links melhorados */
+a {
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline !important;
+    color: var(--primary-color) !important;
+}
+
+/* Responsivo para mobile */
+@media (max-width: 576px) {
+    .logo-index {
+        width: clamp(180px, 40vw, 250px);
+    }
+    
+    .card {
+        margin: 15px;
+    }
+    
+    .card-header {
+        padding: 2rem 1rem !important;
+    }
+    
+    .card-body {
+        padding: 2rem 1rem !important;
+    }
+    
+    .bg-index {
+        background-attachment: scroll;
+    }
+}
+
+/* Responsivo para tablets */
+@media (min-width: 577px) and (max-width: 768px) {
+    .logo-index {
+        width: clamp(220px, 30vw, 280px);
+    }
+}
+
+/* Responsivo para desktop */
+@media (min-width: 769px) {
+    .logo-index {
+        width: clamp(240px, 25vw, 320px);
+    }
+    
+    .bg-index {
+        background-attachment: fixed;
+    }
+}
+
+/* Estilos para botões do chat */
+.chat-action-button {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(7, 87, 146, 0.3);
+    font-family: var(--font-family);
+}
+
+.chat-action-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(7, 87, 146, 0.4);
+    background: linear-gradient(135deg, #0a6aa3 0%, #12a8a5 100%);
+}
+
+.chat-action-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(7, 87, 146, 0.3);
+}
+
+.chat-action-button.success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.chat-action-button.success:hover {
+    background: linear-gradient(135deg, #218838 0%, #1ea57a 100%);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+.chat-action-button.warning {
+    background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%);
+    color: #212529;
+    box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+}
+
+.chat-action-button.warning:hover {
+    background: linear-gradient(135deg, #e0a800 0%, #e8610c 100%);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+}
+
+/* Container para botões do chat */
+.chat-buttons-container {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.chat-buttons-container .chat-action-button {
+    display: inline-block;
+    margin: 5px 8px 5px 0;
+}
+
+/* Responsivo para botões em mobile */
+@media (max-width: 576px) {
+    .chat-action-button {
+        padding: 8px 12px;
+        font-size: 13px;
+        margin: 3px;
+    }
+    
+    .chat-buttons-container .chat-action-button {
+        display: block;
+        width: 100%;
+        margin: 5px 0;
+        text-align: center;
+    }
+}
